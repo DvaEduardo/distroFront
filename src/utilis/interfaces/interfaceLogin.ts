@@ -21,3 +21,16 @@ export interface UserInformation {
     token: string;
     expirationDate: Date;
   }
+
+
+  export interface Data {
+    id: number;
+    usuario: string;
+    email: string;
+    archivo: string;
+    type: string;
+    estadoId: number;
+    estado: string;
+    creationDate: string;
+    renewalDate: string;
+  }

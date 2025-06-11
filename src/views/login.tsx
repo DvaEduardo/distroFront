@@ -6,21 +6,20 @@ import Swal from "sweetalert2";
 import "../css/login.css";
 
 const Login: React.FC = () => {
-  const images = ["https://eurobucket.bl"];
+  const images = [
+    "https://eurocdn.azureedge.net/bucket/BackOffice/a/a/distro.png",
+  ];
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  // const [errorMessage, setErrorMessage] = useState("");
-  // const [userResponse, setUserResponse] = useState<UserInformation | null>(
-  //   null
-  // );
+
   //states
   const [emailError, setEmailError] = useState(false);
   const [passwordError, setPasswordError] = useState(false);
-  const [showPassword, setShowPassword] = useState(false); // Estado para mostrar/ocultar contraseña
+  const [showPassword, setShowPassword] = useState(false);
   const isPasswordValid = password.trim();
 
   const togglePasswordVisibility = () => {
-    setShowPassword((prevState) => !prevState); // Cambia el estado para mostrar/ocultar contraseña
+    setShowPassword((prevState) => !prevState);
   };
 
   const handleLogin = () => {
@@ -51,7 +50,6 @@ const Login: React.FC = () => {
       setPasswordError(true);
       return;
     }
-    // access();
   };
 
   return (
@@ -60,7 +58,8 @@ const Login: React.FC = () => {
         <Box className="containerRight col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4 col-xxl-4">
           <Box className="row login-container">
             <center>
-              <p className=" fs-5 fw-bold">Iniciar sesión</p>
+              <p className=" fs-5 fw-bold">Bienvenido</p>
+              <p className=" fs-5 fw-bold">Plataforma de carga de archivos</p>
             </center>
             <Box className="input-field col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12">
               <TextField
