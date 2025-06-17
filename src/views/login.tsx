@@ -1,5 +1,5 @@
 import { Visibility, VisibilityOff } from "@mui/icons-material";
-import { Box } from "@mui/material";
+import { Box, Typography } from "@mui/material";
 import { Button, TextField } from "@mui/material";
 import React, { useState } from "react";
 import Swal from "sweetalert2";
@@ -55,13 +55,33 @@ const Login: React.FC = () => {
   return (
     <>
       <Box className="row">
-        <Box className="containerRight col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4 col-xxl-4">
+        <Box className="containerRight col-12 col-sm-12 col-md-3 col-lg-3">
           <Box className="row login-container">
             <center>
-              <p className=" fs-5 fw-bold">Bienvenido</p>
-              <p className=" fs-5 fw-bold">Plataforma de carga de archivos</p>
+              <Typography
+                variant="h4"
+                sx={{
+                  fontWeight: 'bold',
+                  color: '#48160d',
+                  mb: 2,
+                  textAlign: 'center'
+                }}
+              >
+                Bienvenido
+              </Typography>
+              <Typography
+                variant="h6"
+                sx={{
+                  fontWeight: 'medium',
+                  color: '#781912',
+                  mb: 3,
+                  textAlign: 'center'
+                }}
+              >
+                Plataforma de carga de archivos
+              </Typography>
             </center>
-            <Box className="input-field col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12">
+            <Box className="input-field col-12 col-sm-12 col-md-12 col-lg-12">
               <TextField
                 className="input-field"
                 label="Correo electrónico"
@@ -78,7 +98,7 @@ const Login: React.FC = () => {
                 }
               />
             </Box>
-            <Box className="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12">
+            <Box className="col-12 col-sm-12 col-md-12 col-lg-12">
               <TextField
                 className="input-field"
                 label="Contraseña"
@@ -106,23 +126,42 @@ const Login: React.FC = () => {
                 }}
               />
             </Box>
-            <Box className="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12">
+            <Box className="col-12 col-sm-12 col-md-12 col-lg-12">
               <center style={{ marginTop: "1rem" }}>
                 <button
                   type="button"
                   onClick={handleLogin}
-                  className="btn btn-dark btn-lg"
+                  className="btn btn-lg"
+                  style={{
+                    backgroundColor: '#48160d',
+                    color: 'white',
+                    border: 'none',
+                    '&:hover': {
+                      backgroundColor: '#781912'
+                    }
+                  }}
                 >
                   Iniciar sesión
                 </button>
-                <p className="fs-6 fw-bold" style={{ marginTop: "1rem" }}>
+                <Typography
+                  variant="body2"
+                  sx={{
+                    mt: 2,
+                    color: '#781912',
+                    cursor: 'pointer',
+                    '&:hover': {
+                      textDecoration: 'underline',
+                      color: '#48160d'
+                    }
+                  }}
+                >
                   Olvide mi contraseña
-                </p>
+                </Typography>
               </center>
             </Box>
           </Box>
         </Box>
-        <Box className="containerleft col-12 col-sm-12 col-md-8 col-lg-8 col-xl-8 col-xxl-8">
+        <Box className="containerleft col-12 col-sm-12 col-md-9 col-lg-9">
           <Box
             id="carouselExampleSlidesOnly"
             className="carousel slide"
