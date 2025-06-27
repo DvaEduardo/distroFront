@@ -42,7 +42,7 @@ function App() {
               <MenuIcon />
             </IconButton>
             <Typography variant="h6" noWrap>
-              Distro
+              Distrito
             </Typography>
           </Toolbar>
         </AppBar>
@@ -55,7 +55,7 @@ function App() {
             keepMounted: true,
           }}
         >
-          <Typography variant="h6" gutterBottom sx={{ display: 'block', textAlign: 'center', marginTop: '2rem' }}> Distro </Typography>
+          <Typography variant="h6" gutterBottom sx={{ display: 'block', textAlign: 'center', marginTop: '2rem' }}> Distrito </Typography>
           <Typography variant="button" gutterBottom sx={{ display: 'block', textAlign: 'center', margin: '1rem' }}> Grupo Inmoviliario del norte </Typography>
           <List>
             {route.filter(rout => rout.isVisible).map((rout) => (

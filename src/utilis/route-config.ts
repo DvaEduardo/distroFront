@@ -17,7 +17,7 @@ const route = [
     isVisible: true
   },
   {
-    path: "/Crear/Valuador",
+    path: "/Crear/Valuador/:typeUser/:userID",
     element: React.createElement(FormNewValuador),
     exact: true,
     icon: "ValuadorIcon",
