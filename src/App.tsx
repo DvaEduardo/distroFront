@@ -31,17 +31,18 @@ function App() {
     <>
       <CssBaseline />
       <Router>
-        <AppBar position="fixed">
+        <AppBar position="fixed" sx={{ backgroundColor: '#691811' }}>
           <Toolbar>
             <IconButton
               color="inherit"
               aria-label="open drawer"
               onClick={handleDrawerOpen}
               edge="start"
+              sx={{ color: '#fff' }}
             >
               <MenuIcon />
             </IconButton>
-            <Typography variant="h6" noWrap>
+            <Typography variant="h6" noWrap sx={{ color: '#fff' }}>
               Distrito
             </Typography>
           </Toolbar>
@@ -54,9 +55,10 @@ function App() {
           ModalProps={{
             keepMounted: true,
           }}
+          PaperProps={{ sx: { backgroundColor: '#691811' } }}
         >
-          <Typography variant="h6" gutterBottom sx={{ display: 'block', textAlign: 'center', marginTop: '2rem' }}> Distrito </Typography>
-          <Typography variant="button" gutterBottom sx={{ display: 'block', textAlign: 'center', margin: '1rem' }}> Grupo Inmoviliario del norte </Typography>
+          <Typography variant="h6" gutterBottom sx={{ display: 'block', textAlign: 'center', marginTop: '2rem', color: '#fff' }}> Distrito </Typography>
+          <Typography variant="button" gutterBottom sx={{ display: 'block', textAlign: 'center', margin: '1rem', color: '#fff' }}> Grupo Inmoviliario del norte </Typography>
           <List>
             {route.filter(rout => rout.isVisible).map((rout) => (
               <NavLink
@@ -66,9 +68,26 @@ function App() {
                 style={{ textDecoration: 'none', color: 'inherit' }}
               >
                 {({ isActive }) => (
-                  <ListItemButton selected={isActive}>
-                    <ListItemIcon style={{ color: "primary.main" }}>{iconMap[rout.icon]}</ListItemIcon>
-                    <ListItemText primary={rout.name} />
+                  <ListItemButton
+                    selected={isActive}
+                    sx={{
+                      color: '#fff',
+                      '&:hover': {
+                        backgroundColor: '#8a2320',
+                        color: '#fff'
+                      },
+                      '&.Mui-selected': {
+                        backgroundColor: '#8a2320',
+                        color: '#fff'
+                      },
+                      '&.Mui-selected:hover': {
+                        backgroundColor: '#a12a25',
+                        color: '#fff'
+                      }
+                    }}
+                  >
+                    <ListItemIcon style={{ color: '#fff' }}>{iconMap[rout.icon]}</ListItemIcon>
+                    <ListItemText primary={rout.name} primaryTypographyProps={{ sx: { color: '#fff' } }} />
                   </ListItemButton>
                 )}
               </NavLink>

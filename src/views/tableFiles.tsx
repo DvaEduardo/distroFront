@@ -206,23 +206,36 @@ const TableFiles: React.FC = () => {
     <Box
       sx={{
         width: '100vw',
-        height: '100vh',
+        minHeight: '100vh',
+        background: '#f6f7fb',
         display: 'flex',
         flexDirection: 'column',
-        p: 2
+        alignItems: 'center',
+        justifyContent: 'flex-start',
+        marginTop: '65px',
+        py: 4,
+        px: 1,
       }}
     >
-      <Paper sx={{ 
-        width: '100%',
-        height: '100%',
-        display: 'flex', 
-        flexDirection: 'column'
-      }}>
-        <Toolbar>
-          <Typography sx={{ flex: "1 1 100%" }} variant="h6" component="div">
+      <Paper
+        sx={{
+          width: '100%',
+          maxWidth: 1440,
+          minHeight: 400,
+          mx: 'auto',
+          p: { xs: 1, sm: 3 },
+          borderRadius: 4,
+          boxShadow: '0 6px 32px rgba(105,24,17,0.10)',
+          display: 'flex',
+          flexDirection: 'column',
+          gap: 2,
+        }}
+      >
+        <Toolbar sx={{ px: 0, mb: 2 }}>
+          <Typography sx={{ flex: '1 1 100%', fontWeight: 700, fontSize: '1.4rem', color: '#691811' }} variant="h6" component="div">
             Archivos
           </Typography>
-          <Tooltip title="Delete">
+          <Tooltip title="Eliminar seleccionados">
             <IconButton
               onClick={() =>
                 Swal.fire("Acción", "Eliminar seleccionados", "info")
@@ -237,7 +250,7 @@ const TableFiles: React.FC = () => {
           height: '100%',
           overflow: 'auto'
         }}>
-          <Table>
+          <Table className="table-moderna">
             <TableHead>
               <TableRow>
                 <TableCell padding="checkbox">
@@ -280,7 +293,7 @@ const TableFiles: React.FC = () => {
                   {/* <TableCell>{row.estatusId}</TableCell> */}
                   <TableCell>{row.estatus}</TableCell>
                   <TableCell>
-                    <Button variant="contained" color="primary">
+                    <Button className="btn-principal">
                       Descargar
                     </Button>
                   </TableCell>

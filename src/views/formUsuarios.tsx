@@ -8,7 +8,6 @@ import {
   FormControl,
   InputLabel,
   Typography,
-  Paper,
   SelectChangeEvent,
 } from '@mui/material';
 import Swal from 'sweetalert2';
@@ -93,110 +92,199 @@ const FormUsuarios: React.FC = () => {
   return (
     <Box
       sx={{
+        minHeight: '100vh',
         width: '100vw',
-        height: '100vh',
+        background: '#f6f7fb',
         display: 'flex',
-        alignItems: 'flex-start',
-        pt: 2,
-        px: 2,
+        flexDirection: 'column',
+        alignItems: 'center',
+        justifyContent: 'flex-start',
+        marginTop: '65px',
+        py: 4,
+        px: 1,
       }}
     >
-      <Paper
+      <Box
         sx={{
           width: '100%',
-          p: 3,
+          maxWidth: 1440,
+          mx: 'auto',
+          p: { xs: 2, sm: 4 },
+          background: '#fff',
+          borderRadius: 4,
+          boxShadow: '0 6px 32px rgba(105,24,17,0.10)',
           display: 'flex',
           flexDirection: 'column',
           gap: 2,
+          border: 'none',
         }}
       >
-        <Typography variant="h5" component="h2" gutterBottom>
+        <Typography variant="h5" component="h2" gutterBottom sx={{ color: '#691811', fontWeight: 700 }}>
           Registro de Usuario
         </Typography>
-
-        <form onSubmit={handleSubmit}>
-          <Box sx={{ 
+        <form onSubmit={handleSubmit} autoComplete="off">
+          <Box sx={{
             display: 'flex',
-            flexDirection: 'column',
+            flexDirection: { xs: 'column', md: 'row' },
             gap: 2,
+            flexWrap: 'wrap',
+            width: '100%',
           }}>
-            <Box sx={{ 
-              display: 'flex', 
-              flexDirection: 'row',
-              gap: 2,
-              flexWrap: 'nowrap',
-              '& .MuiFormControl-root': {
-                minWidth: '150px',
-                flex: 1,
-              }
-            }}>
-              <TextField
-                required
-                name="Nombre"
-                label="Nombre"
-                value={formData.Nombre}
-                onChange={handleTextChange}
-              />
-
-              <TextField
-                required
-                name="Apellidos"
-                label="Apellidos"
-                value={formData.Apellidos}
-                onChange={handleTextChange}
-              />
-
-              <TextField
-                required
-                name="Correo"
-                label="Correo"
-                type="email"
-                value={formData.Correo}
-                onChange={handleTextChange}
-              />
-
-              <TextField
-                required
-                name="Contraseña"
-                label="Contraseña"
-                type="password"
-                value={formData.Contraseña}
-                onChange={handleTextChange}
-              />
-
-              <FormControl>
-                <InputLabel>Rol</InputLabel>
-                <Select
-                  name="RolId"
-                  value={formData.RolId}
-                  onChange={handleSelectChange}
-                  label="Rol"
-                >
-                  {roles.map((rol) => (
-                    <MenuItem key={rol.id} value={rol.id}>
-                      {rol.nombre}
-                    </MenuItem>
-                  ))}
-                </Select>
-              </FormControl>
-            </Box>
-
-            <Box sx={{ 
-              display: 'flex',
-              justifyContent: 'flex-end',
-            }}>
-              <Button
-                type="submit"
-                variant="contained"
-                color="primary"
-                sx={{ minWidth: '150px' }}
+            <TextField
+              required
+              name="Nombre"
+              label="Nombre"
+              value={formData.Nombre}
+              onChange={handleTextChange}
+              variant="outlined"
+              size="medium"
+              InputProps={{ style: { height: 56 } }}
+              sx={{
+                background: '#fff',
+                borderRadius: 2,
+                flex: 2,
+                minWidth: { xs: '100%', md: 150 },
+                '& .MuiOutlinedInput-root': {
+                  borderRadius: 2,
+                  '&.Mui-focused .MuiOutlinedInput-notchedOutline': {
+                    borderColor: '#691811',
+                    borderWidth: 2,
+                  },
+                },
+                '& label.Mui-focused': {
+                  color: '#691811',
+                },
+              }}
+            />
+            <TextField
+              required
+              name="Apellidos"
+              label="Apellidos"
+              value={formData.Apellidos}
+              onChange={handleTextChange}
+              variant="outlined"
+              size="medium"
+              InputProps={{ style: { height: 56 } }}
+              sx={{
+                background: '#fff',
+                borderRadius: 2,
+                flex: 2,
+                minWidth: { xs: '100%', md: 150 },
+                '& .MuiOutlinedInput-root': {
+                  borderRadius: 2,
+                  '&.Mui-focused .MuiOutlinedInput-notchedOutline': {
+                    borderColor: '#691811',
+                    borderWidth: 2,
+                  },
+                },
+                '& label.Mui-focused': {
+                  color: '#691811',
+                },
+              }}
+            />
+            <TextField
+              required
+              name="Correo"
+              label="Correo"
+              type="email"
+              value={formData.Correo}
+              onChange={handleTextChange}
+              variant="outlined"
+              size="medium"
+              InputProps={{ style: { height: 56 } }}
+              sx={{
+                background: '#fff',
+                borderRadius: 2,
+                flex: 2,
+                minWidth: { xs: '100%', md: 150 },
+                '& .MuiOutlinedInput-root': {
+                  borderRadius: 2,
+                  '&.Mui-focused .MuiOutlinedInput-notchedOutline': {
+                    borderColor: '#691811',
+                    borderWidth: 2,
+                  },
+                },
+                '& label.Mui-focused': {
+                  color: '#691811',
+                },
+              }}
+            />
+            <TextField
+              required
+              name="Contraseña"
+              label="Contraseña"
+              type="password"
+              value={formData.Contraseña}
+              onChange={handleTextChange}
+              variant="outlined"
+              size="medium"
+              InputProps={{ style: { height: 56 } }}
+              sx={{
+                background: '#fff',
+                borderRadius: 2,
+                flex: 2,
+                minWidth: { xs: '100%', md: 150 },
+                '& .MuiOutlinedInput-root': {
+                  borderRadius: 2,
+                  '&.Mui-focused .MuiOutlinedInput-notchedOutline': {
+                    borderColor: '#691811',
+                    borderWidth: 2,
+                  },
+                },
+                '& label.Mui-focused': {
+                  color: '#691811',
+                },
+              }}
+            />
+            <FormControl
+              variant="outlined"
+              sx={{
+                background: '#fff',
+                borderRadius: 2,
+                minWidth: { xs: '100%', md: 150 },
+                flex: 2,
+                '& .MuiOutlinedInput-root': {
+                  borderRadius: 2,
+                  '&.Mui-focused .MuiOutlinedInput-notchedOutline': {
+                    borderColor: '#691811',
+                    borderWidth: 2,
+                  },
+                },
+                '& label.Mui-focused': {
+                  color: '#691811',
+                },
+              }}
+            >
+              <InputLabel>Rol</InputLabel>
+              <Select
+                name="RolId"
+                value={formData.RolId}
+                onChange={handleSelectChange}
+                label="Rol"
               >
-                Registrar
-              </Button>
-            </Box>
+                {roles.map((rol) => (
+                  <MenuItem key={rol.id} value={rol.id}>
+                    {rol.nombre}
+                  </MenuItem>
+                ))}
+              </Select>
+            </FormControl>
+          </Box>
+          <Box sx={{
+            display: 'flex',
+            justifyContent: { xs: 'center', md: 'flex-end' },
+            mt: { xs: 3, md: 2 },
+          }}>
+            <Button
+              type="submit"
+              className="btn-principal"
+              sx={{ minWidth: '150px' }}
+            >
+              Registrar
+            </Button>
           </Box>
         </form>
-      </Paper>
+      </Box>
     </Box>
   );
 };

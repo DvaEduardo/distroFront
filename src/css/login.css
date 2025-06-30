@@ -1,36 +1,327 @@
-.containerRight, .containerleft {
-    flex: 1;
-    height: 100%;
-    overflow: hidden;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
+/* Variables de color */
+:root {
+  --primary-color: #691811;
+  --primary-light: #8a2a1f;
+  --primary-dark: #4d120c;
+  --text-color: #333;
+  --background-light: #f8f9fa;
+  --border-color: #e0e0e0;
+  --error-color: #d32f2f;
+  --success-color: #2e7d32;
+}
+
+/* Sidebar (formulario de login) limpio */
+.containerRight {
+  min-width: unset;
+  max-width: unset;
+  width: 100%;
+  height: 100vh;
+  background: #fff;
+  border-radius: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 2;
+  margin: 0;
+  padding: 0;
+  box-shadow: none !important;
+  border: none !important;
+}
+
+/* Área de la columna derecha en blanco */
+.containerleft {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background: #fff !important;
+  overflow: hidden;
+  z-index: 1;
+}
+
+/* Ajuste del contenedor principal */
+.row {
+  display: flex;
+  flex-direction: row;
+  height: 100vh;
+  width: 100vw;
+  margin: 0;
+  padding: 0;
+}
+
+/* Formulario sin sombra ni borde */
+.login-container {
+  width: 95%;
+  max-width: 400px;
+  padding: 40px 30px;
+  border-radius: 0;
+  background: #fff;
+  box-shadow: none !important;
+  border: none !important;
+  margin: 0 auto;
+  height: 70%;
+}
+
+/* Títulos del formulario */
+.login-container center p {
+  color: var(--primary-color);
+  margin-bottom: 8px;
+  text-shadow: none;
+}
+
+.login-container center p:first-child {
+  font-size: 2rem !important;
+  margin-bottom: 5px;
+}
+
+.login-container center p:last-of-type {
+  font-size: 1.1rem !important;
+  color: #666;
+  font-weight: 400 !important;
+}
+
+/* Campos de entrada */
+.input-field {
+  margin-bottom: 20px;
+  width: 100%;
+}
+
+.input-field .MuiOutlinedInput-root,
+.input-field .MuiOutlinedInput-root.Mui-focused {
+  border-radius: 10px;
+  box-shadow: none !important;
+  border-color: #ccc;
+}
+
+.input-field .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline {
+  border-color: var(--primary-color);
+  border-width: 2px;
+}
+
+.input-field .MuiInputLabel-root.Mui-focused {
+  color: var(--primary-color);
+}
+
+/* Botón de inicio de sesión */
+.btn-dark {
+  background: #691811 !important;
+  color: #fff !important;
+  border: none !important;
+  border-radius: 25px;
+  padding: 12px 40px;
+  font-weight: 600;
+  font-size: 1.1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  transition: background 0.2s;
+  box-shadow: none !important;
+}
+
+.btn-dark:hover,
+.btn-dark:active,
+.btn-dark:focus {
+  background: #4d120c !important;
+  color: #fff !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+/* Enlace "Olvidé mi contraseña" */
+.login-container center p.fs-6 {
+  color: var(--primary-color);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  margin-top: 20px !important;
+}
+
+.login-container center p.fs-6:hover {
+  color: var(--primary-light);
+  text-decoration: underline;
+}
+
+/* Iconos de visibilidad de contraseña */
+.MuiButton-root {
+  min-width: auto !important;
+  padding: 8px !important;
+  border-radius: 50% !important;
+  transition: all 0.3s ease;
+  box-shadow: none !important;
+}
+
+.MuiButton-root:hover {
+  background-color: rgba(105, 24, 17, 0.1) !important;
+}
+
+/* Mensajes de error */
+.MuiFormHelperText-root.Mui-error {
+  color: var(--error-color);
+  font-weight: 500;
+  margin-top: 5px;
+}
+
+.containerRight {
+  height: 100%;
+}
+
+.containerleft {
+  
+}
+
+/* Responsive */
+@media (max-width: 900px) {
   .containerRight {
-    background-color: rgb(255, 255, 255); 
-    height: 100vh;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    min-width: 100vw;
+    max-width: 100vw;
+    border-radius: 0;
+    box-shadow: none;
+    height: auto;
   }
   .containerleft {
-    background-color:var(--background);
-    height: 100vh; 
+    display: none;
+  }
+  .row {
+    flex-direction: column;
+    height: auto;
+  }
+}
+
+@media (max-width: 480px) {
+  .containerRight {
+    min-width: 100vw;
+    max-width: 100vw;
+    border-radius: 0;
+    padding: 0;
   }
   .login-container {
-    width: 90%;
-    padding: 20px;
-    border-radius: 5px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 0;
+    padding: 15px 5px;
   }
-  .input-field {
-    margin-bottom: 15px;
-    width: 100%;
+}
+
+/* Eliminar cualquier sombra residual */
+.border, .login-button {
+  box-shadow: none !important;
+}
+
+/* Animaciones */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
   }
-  .login-button {
-    margin-top: 10px;
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
-  .error input {
-    border-color: var(--alert) !important;
+}
+
+.login-container {
+  animation: fadeInUp 0.6s ease-out;
+}
+
+/* Estilos para el carrusel */
+.carousel-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  background: #fff;
+}
+.carousel-item img {
+  object-fit: contain;
+  max-width: 90vw;
+  max-height: 90vh;
+  width: auto;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+  background: #fff;
+}
+
+/* Mejoras para el estado de error */
+.error input {
+  border-color: var(--error-color) !important;
+}
+
+/* Botón principal estándar para toda la app */
+.btn-principal {
+  background: #691811 !important;
+  color: #fff !important;
+  border: none !important;
+  border-radius: 8px !important;
+  padding: 12px 32px !important;
+  font-weight: 600 !important;
+  font-size: 1rem !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.5px !important;
+  transition: background 0.2s;
+  box-shadow: none !important;
+  outline: none !important;
+}
+
+.btn-principal:hover,
+.btn-principal:active,
+.btn-principal:focus {
+  background: #4d120c !important;
+  color: #fff !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+/* Tabla moderna */
+.table-moderna {
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 4px 24px rgba(105, 24, 17, 0.10);
+  background: #fff;
+}
+
+.table-moderna thead tr {
+  background: #691811;
+}
+
+.table-moderna thead th, .table-moderna thead td {
+  color: #fff;
+  font-weight: 700;
+  font-size: 1rem;
+  border: none;
+  padding: 14px 12px;
+}
+
+.table-moderna tbody tr {
+  transition: background 0.2s;
+}
+
+.table-moderna tbody tr:hover {
+  background: #f5eaea;
+}
+
+.table-moderna td {
+  font-size: 1rem;
+  border-bottom: 1px solid #f0e0e0;
+  padding: 12px 10px;
+}
+
+.table-moderna .MuiCheckbox-root {
+  color: #691811 !important;
+}
+
+.table-moderna .MuiIconButton-root {
+  color: #691811 !important;
+}
+
+.table-moderna .btn-principal {
+  margin: 0;
+  padding: 8px 20px !important;
+  font-size: 0.95rem !important;
+  border-radius: 8px !important;
+}
+
+@media (max-width: 900px) {
+  .table-moderna thead th, .table-moderna td {
+    font-size: 0.95rem;
+    padding: 10px 6px;
   }
-  .border{
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.132);
-  }
+}

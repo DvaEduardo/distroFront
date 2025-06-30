@@ -312,25 +312,35 @@ const FormNewValuador: React.FC = () => {
     <Box
       sx={{
         width: '100vw',
+        minHeight: '100vh',
+        background: '#f6f7fb',
         display: 'flex',
-        alignItems: 'flex-start',
-        pt: 2,
-        px: 2,
+        flexDirection: 'column',
+        alignItems: 'center',
+        justifyContent: 'flex-start',
+        marginTop: '65px',
+        py: 4,
+        px: 1,
       }}
     >
       <Paper
         sx={{
           width: '100%',
-          p: 3,
+          maxWidth: 1440,
+          minHeight: 400,
+          mx: 'auto',
+          p: { xs: 2, sm: 4 },
+          borderRadius: 4,
+          boxShadow: '0 6px 32px rgba(105,24,17,0.10)',
           display: 'flex',
           flexDirection: 'column',
           gap: 2,
         }}
       >
-        <Typography variant="h5" component="h2" gutterBottom align="center">
+        <Typography variant="h5" component="h2" gutterBottom align="center" sx={{ color: '#691811', fontWeight: 700 }}>
           Registro de nuevo ingreso para Valuador Profesional
         </Typography>
-        <Typography variant="h6" component="h2" gutterBottom align="center">
+        <Typography variant="h6" component="h2" gutterBottom align="center" sx={{ color: '#691811', fontWeight: 500 }}>
           Ingresa los archivos solicitados
         </Typography>
         
@@ -352,6 +362,7 @@ const FormNewValuador: React.FC = () => {
               display: 'grid', 
               gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
               gap: 3,
+              width: '100%',
             }}>
               {filteredFiles.map((file) => {
                 const originalIndex = filesInput.findIndex(f => f.nameFile === file.nameFile);
@@ -377,7 +388,7 @@ const FormNewValuador: React.FC = () => {
                       }}>
                         <FormHelperText sx={{ 
                           textAlign: 'center',
-                          fontSize: '0.875rem',
+                          fontSize: '0.95rem',
                           color: 'text.primary',
                           fontWeight: selectedFile ? 'bold' : 'normal',
                           m: 0,
@@ -419,6 +430,9 @@ const FormNewValuador: React.FC = () => {
                           textAlign: 'center',
                           whiteSpace: 'normal',
                           lineHeight: 1.2,
+                          borderRadius: 2,
+                          fontWeight: 600,
+                          fontSize: '1rem',
                         }}
                       >
                         {file.nameFile}
@@ -437,8 +451,7 @@ const FormNewValuador: React.FC = () => {
             <Box sx={{ display: 'flex', justifyContent: 'flex-end', mt: 2 }}>
               <Button
                 type="submit"
-                variant="contained"
-                color="primary"
+                className="btn-principal"
                 size="large"
               >
                 Guardar

@@ -131,7 +131,7 @@ const headCells = [
 
 const TableUsers: React.FC = () => {
   const [order, setOrder] = useState<Order>("asc");
-  const [orderBy, setOrderBy] = useState<keyof Data>("name");
+  const [orderBy, setOrderBy] = useState<keyof Data>("usuario");
   const [selected, setSelected] = useState<number[]>([]);
   const [page, setPage] = useState(0);
   const [rowsPerPage, setRowsPerPage] = useState(5);
@@ -181,23 +181,36 @@ const TableUsers: React.FC = () => {
     <Box
       sx={{
         width: '100vw',
-        height: '100vh',
+        minHeight: '100vh',
+        background: '#f6f7fb',
         display: 'flex',
         flexDirection: 'column',
-        p: 2
+        alignItems: 'center',
+        justifyContent: 'flex-start',
+        marginTop: '65px',
+        py: 4,
+        px: 1,
       }}
     >
-      <Paper sx={{ 
-        width: '100%',
-        height: '100%',
-        display: 'flex', 
-        flexDirection: 'column'
-      }}>
-        <Toolbar>
-          <Typography sx={{ flex: "1 1 100%" }} variant="h6" component="div">
-          Valuadores
+      <Paper
+        sx={{
+          width: '100%',
+          maxWidth: 1440,
+          minHeight: 400,
+          mx: 'auto',
+          p: { xs: 1, sm: 3 },
+          borderRadius: 4,
+          boxShadow: '0 6px 32px rgba(105,24,17,0.10)',
+          display: 'flex',
+          flexDirection: 'column',
+          gap: 2,
+        }}
+      >
+        <Toolbar sx={{ px: 0, mb: 2 }}>
+          <Typography sx={{ flex: '1 1 100%', fontWeight: 700, fontSize: '1.4rem', color: '#691811' }} variant="h6" component="div">
+            Valuadores
           </Typography>
-          <Tooltip title="Delete">
+          <Tooltip title="Eliminar seleccionados">
             <IconButton
               onClick={() =>
                 Swal.fire("Acción", "Eliminar seleccionados", "info")
@@ -212,7 +225,7 @@ const TableUsers: React.FC = () => {
           height: '100%',
           overflow: 'auto'
         }}>
-          <Table size={dense ? "small" : "medium"}>
+          <Table className="table-moderna" size={dense ? "small" : "medium"}>
             <TableHead>
               <TableRow>
                 <TableCell padding="checkbox">
@@ -228,6 +241,7 @@ const TableUsers: React.FC = () => {
                 {headCells.map((headCell) => (
                   <TableCell key={headCell.id}>{headCell.label}</TableCell>
                 ))}
+                <TableCell>Acciones</TableCell>
               </TableRow>
             </TableHead>
             <TableBody>
@@ -253,7 +267,7 @@ const TableUsers: React.FC = () => {
                   <TableCell>{row.creationDate}</TableCell>
                   <TableCell>{row.renewalDate}</TableCell>
                   <TableCell>
-                    <Button variant="contained" color="primary">
+                    <Button className="btn-principal">
                       ver archivos
                     </Button>
                   </TableCell>

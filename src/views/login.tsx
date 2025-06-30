@@ -4,10 +4,11 @@ import { Button, TextField } from "@mui/material";
 import React, { useState } from "react";
 import Swal from "sweetalert2";
 import "../css/login.css";
+import distroImage from "../assets/images/distro.png";
 
 const Login: React.FC = () => {
   const images = [
-    "https://eurocdn.azureedge.net/bucket/BackOffice/a/a/Distrito.png",
+    distroImage,
   ];
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
